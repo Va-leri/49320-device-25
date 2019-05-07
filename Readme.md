@@ -1,7 +1,7 @@
 # Личный проект «Девайс»
 
 * Студент: [Валерия](https://up.htmlacademy.ru/htmlcss/25/user/49320).
-* Наставник: `Неизвестно`.
+* Наставник: [Вадим Двухжилов](https://htmlacademy.ru/profile/ericssan).
 
 ---
 
