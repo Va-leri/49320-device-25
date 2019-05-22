@@ -12,13 +12,28 @@
           <!-- <img src="img/device-logo.svg" width="163" height="35" alt="Логотип интернет-магазина DEVICE"> -->
         </a>
         <ul class="header-catalog-menu">
-          <li><span>Поиск по сайту</span></li>
-          <li><a href="#">Каталог товаров</a></li>
+          <li>
+            <form>
+              <button type="submit" aria-label="Найти">Найти</button>
+              <input type="search" placeholder="Поиск по сайту">
+            </form>
+          </li>
+          <li>
+            <a href="#">Каталог товаров</a>
+            <ul class="header-catalog-sections" style="display: none;">
+                <li><a href="#">Виртуальная реальность</a></li>
+                <li><a href="#">Моноподы для селфи</a></li>
+                <li><a href="#">Экшн-камеры</a></li>
+                <li><a href="#">Фитнес-браслеты</a></li>
+                <li><a href="#">Умные часы</a></li>
+                <li><a href="#">Квадрокоптеры</a></li>
+              </ul>
+          </li>
         </ul>
         <ul class="header-user-menu">
           <li>
             <a href="#">Валентин Петухов</a>
-            <button>Выйти</button>
+            <button type="button" aria-label="Выйти из аккаунта">Выйти</button>
           </li>
           <li><a href="#">Сравнить</a></li>
           <li><a href="#">Корзина</a></li>
@@ -39,27 +54,28 @@
       </ul>
       <section class="filter">
         <h2>Фильтр:</h2>
-        <div class="filter-clause">
-          <h3>Стоимость</h3>
-        </div>
-        <div class="filter-clause">
-          <h3>Цвет</h3>
-          <ul>
-            <li>Черный</li>
-            <li>Белый</li>
-            <li>Синий</li>
-            <li>Красный</li>
-            <li>Розовый</li>
-          </ul>
-        </div>
-        <div class="filter-clause">
-          <h3>Bluetooth</h3>
-          <ul>
-            <li>Есть</li>
-            <li>Нет</li>
-          </ul>
-        </div>
-        <a href="#">Показать</a>
+        <form method="get">
+          <fieldset class="filter-clause">
+            <legend>Стоимость</legend>
+            <input type="range" min="0">
+          </fieldset>
+          <fieldset class="filter-clause">
+            <legend>Цвет</legend>
+            <ul>
+              <li><input type="checkbox" name="color" checked>Черный</input></li>
+              <li><input type="checkbox" name="color">Белый</input></li>
+              <li><input type="checkbox" name="color" checked>Синий</input></li>
+              <li><input type="checkbox" name="color" checked>Красный</input></li>
+              <li><input type="checkbox" name="color">Розовый</input></li>
+            </ul>
+          </fieldset>
+          <fieldset class="filter-clause">
+            <legend>Bluetooth</legend>
+            <label><input type="radio" name="bluetooth" value="yes" checked>Есть</label>
+            <label><input type="radio" name="bluetooth" value="no">Нет</label>
+          </fieldset>
+          <button type="submit">Показать</button>
+        </form>
       </section>
       <section class="catalog">
         <h2 class="hidden">Каталог</h2>
@@ -134,9 +150,9 @@
           <li><a href="#">Контакты</a></li>
         </ul>
         <ul class="social-nets">
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Twitter</a></li>
+          <li><a href="#" aria-label="Device на Фэйсбуке">Facebook</a></li>
+          <li><a href="#" aria-label="Device в Инстаграме">Instagram</a></li>
+          <li><a href="#" aria-label="Device в Твиттере">Twitter</a></li>
         </ul>
         <a class="copyright" href="https://htmlacademy.ru/intensive/htmlcss">HTML Academy</a>        
     </footer>

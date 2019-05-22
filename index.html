@@ -12,8 +12,23 @@
           <!-- <img src="img/device-logo.svg" width="163" height="35" alt="Логотип интернет-магазина DEVICE"> -->
         </a>
         <ul class="header-catalog-menu">
-          <li><span>Поиск по сайту</span></li>
-          <li><a href="catalog.html">Каталог товаров</a></li>
+          <li>
+            <form>
+              <button type="submit" aria-label="Найти">Найти</button>
+              <input type="search" placeholder="Поиск по сайту">
+            </form>
+          </li>
+          <li>
+            <a href="catalog.html">Каталог товаров</a>
+            <ul class="header-catalog-sections" style="display: none;">
+              <li><a href="#">Виртуальная реальность</a></li>
+              <li><a href="#">Моноподы для селфи</a></li>
+              <li><a href="#">Экшн-камеры</a></li>
+              <li><a href="#">Фитнес-браслеты</a></li>
+              <li><a href="#">Умные часы</a></li>
+              <li><a href="#">Квадрокоптеры</a></li>
+            </ul>
+          </li>
         </ul>
         <ul class="header-user-menu">
           <li><a href="#">Войти</a></li>
@@ -94,9 +109,15 @@
           </li>
         </ul>
         <ul class="offers-navigation">
-          <li><a class="current">01</a></li>
-          <li><a href="#">02</a></li>
-          <li><a href="#">03</a></li>
+          <li>
+            <button type="button" class="slider-btn current" aria-label="Слайд 1">Слайд 1</button>
+          </li>
+          <li>
+            <button type="button" class="slider-btn" aria-label="Слайд 2">Слайд 2</button>
+          </li>
+          <li>
+            <button type="button" class="slider-btn" aria-label="Слайд 31">Слайд 3</button>
+          </li>
         </ul>
       </section>
       <section class="catalog-sections">
@@ -175,9 +196,26 @@
           Всякое бывает.
         </p>
         <a href="https://www.google.ru/maps/place/ул.+Строителей,+15,+Москва,+119311/@55.687031,37.5274293,17z/data=!3m1!4b1!4m5!3m4!1s0x46b54cf65f5c8955:0x694710ccd55501e!8m2!3d55.687031!4d37.529618?hl=ru">
-          <img src="img/map.png" width="560" height="222" alt="Карта проезда">
+          <img src="img/map.png" width="560" height="222" alt="Карта проезда: улица Строителей, 15">
         </a>
-         <a href="#"><b>Напишите нам</b></a>
+        <div class="modal-map" style="display: none;">
+          <button type="button" aria-label="Закрыть окно карты">Закрыть</button>
+          <img src="img/map-big.png" width="960" height="559" alt="Карта проезда: улица Строителей, 15">
+        </div>
+        <a href="#"><b>Напишите нам</b></a>
+        <section class="feedback-form" style="display: none;">
+          <form method="post">
+            <button type="button">Закрыть</button>
+            <label for="user-name">Ваше имя:</label>
+            <input id="user-name" name="user-name" placeholder="Имя Фамилия">
+            <label for="user-email">Ваш e-mail:</label>
+            <input id="user-email" name="user-email" placeholder="email@example.com">
+            <label for="letter-text">Текст письма:</label>
+            <textarea id="letter-text" name="letter-text" placeholder="В свободной форме"></textarea>
+            <button type="submit">Отправить</button>
+          </form>
+
+        </section>
       </section>
     </main>
     <footer class="site-footer">
@@ -200,9 +238,9 @@
           <li><a href="#">Контакты</a></li>
         </ul>
         <ul class="social-nets">
-          <li><a href="#">Facebook</a></li>
-          <li><a href="#">Instagram</a></li>
-          <li><a href="#">Twitter</a></li>
+          <li><a href="#" aria-label="Device на Фэйсбуке">Facebook</a></li>
+          <li><a href="#" aria-label="Device в Инстаграме">Instagram</a></li>
+          <li><a href="#" aria-label="Device в Твиттере">Twitter</a></li>
         </ul>
         <a class="copyright" href="https://htmlacademy.ru/intensive/htmlcss">HTML Academy</a>        
     </footer>
