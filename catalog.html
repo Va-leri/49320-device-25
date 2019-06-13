@@ -18,7 +18,8 @@
           <ul class="header-left-menu">
             <li>
               <form class="header-search-form">
-                <input class="search-field" type="search" placeholder="Поиск по сайту">
+                <input class="search-field" type="search" id="search-field">
+                <label class="search-label" for="search-field">Поиск по сайту</label>
                 <button class="search-button" type="submit" aria-label="Найти">Найти</button>
               </form>
             </li>
@@ -54,7 +55,7 @@
     </header>
     <main class="catalog-page">
       <div class="center-container">
-        <h1 class="page-title">Моноподы для селфи</h1>
+        <h1 class="page-title" id="monopods-page">Моноподы для селфи</h1>
         <ul class=" breadcrumbs">
           <li><a href="index.html">Главная</a></li>
           <li><a href="catalog.html">Каталог товаров</a></li>
@@ -101,7 +102,7 @@
                 <legend>Bluetooth</legend>
                 <input class="visually-hidden" type="radio" name="bluetooth" value="yes" id="bluetooth" checked>
                 <label for="bluetooth">Есть</label>
-                <input disabled class="visually-hidden" type="radio" name="bluetooth" value="no" id="no-bluetooth">
+                <input class="visually-hidden" type="radio" name="bluetooth" value="no" id="no-bluetooth">
                 <label for="no-bluetooth">Нет</label>
               </fieldset>
               <button class="main-button" type="submit">Показать</button>
@@ -118,8 +119,16 @@
                 <li><a href="">По популярности</a></li>
               </ul>
               <ul class="sort-order">
-                <li><a class="direct-order" href="#">Прямой порядок</a></li>
-                <li><a class="reverse-order" href="#">Обратный порядок</a></li>
+                <li>
+                  <a class="direct-order" href="#">
+                    <span class="visually-hidden">Прямой порядок</span>
+                  </a>
+                </li>
+                <li>
+                  <a class="reverse-order current">
+                    <span class="visually-hidden">Обратный порядок</span>
+                  </a>
+                </li>
               </ul>
             </section>
           </div>
