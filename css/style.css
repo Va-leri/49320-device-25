@@ -93,6 +93,9 @@ a {
 }
 
 .site-header-logo {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
   display: block;
   margin-bottom: 22px;
 }
@@ -145,7 +148,7 @@ a {
   display: flex;
 }
 
-.header-search-form .search-label {
+.search-label {
   position: absolute;
   left: 37px;
   top: 3px;
@@ -161,13 +164,13 @@ a {
   color: rgba(0, 0, 0, 0.3);
 }
 
-.header-search-form .search-label:hover {
+.search-label:hover {
   color: rgba(0, 0, 0, 0.6);
 }
 
-.header-search-form input {
+.search-field {
   height: 45px;
-  width: 356px;
+  width: auto;
   padding-left: 35px;
   padding-top: 0;
   padding-bottom: 10px;
@@ -191,7 +194,16 @@ a {
   color: rgba(0, 0, 0, 0.6);
 }
 
+/* Для IE */
 .header-search-form input:focus {
+  width: 356px;
+  outline: none;
+  border-bottom: 2px solid rgba(0, 0, 0, 1);
+}
+
+
+.header-search-form:focus-within .search-field {
+  width: 356px;
   outline: none;
   border-bottom: 2px solid rgba(0, 0, 0, 1);
 }
@@ -201,16 +213,14 @@ a {
   display: none;
 }
 
-.search-field:focus ~ .search-button {
-  opacity: 1;
-}
+.search-button {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 356px;
 
-
-.header-search-form button {
-  opacity: 0;
-
-  padding-left: 21px;
-  padding-right: 21px;
+  padding-left: 18px;
+  padding-right: 18px;
   height: 45px;
 
   font-family: 'Open Sans', Arial, sans-serif;
@@ -226,17 +236,27 @@ a {
   background: transparent;
 }
 
-.header-search-form button:hover,
-.header-search-form button:focus {
-  opacity: 1;
+/* Для IE */
+.search-field:focus ~ .search-button,
+.header-search-form:focus .search-button {
+  display: block;
+}
+
+.header-search-form:focus-within .search-button {
+  display: block;
+}
+
+.search-field:focus ~ .search-button:hover,
+.search-button:focus {
+  display: block;
   outline: none;
   color: rgba(255, 255, 255, 1);
   
   background: rgba(0, 0, 0, 1);
 }
 
-.header-search-form button:active {
-  opacity: 1;
+.search-button:active {
+  display: block;
   outline: none;
   color: rgba(255, 255, 255, 0.3);
 }
@@ -268,6 +288,8 @@ a {
 }
 
 .header-user-menu {
+  margin-top: 3px;
+
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 15px;
   font-weight: 300;
@@ -299,7 +321,7 @@ a {
 
 .header-user-menu .compare::before {
   background-image: url('../img/compare.svg');
-  left: 8px;
+  left: 9px;
 }
 
 .header-user-menu .cart::before {
@@ -316,8 +338,11 @@ a {
   opacity: 0.3;
 }
 
-.header-user-menu button {
-  margin-left: 10px;
+.header-user-menu .log-out {
+  margin-left: 15px;
+  padding-left: 0;
+  padding-top: 0;
+  padding-bottom: 0;
 
   font-family: inherit;
   line-height: inherit;
@@ -378,16 +403,13 @@ a {
   opacity: 0.3; 
 }
 
-.header-user-menu input:hover,
 .header-details-menu a:hover,
 .header-catalog-menu a:hover,
-.header-user-menu input:focus,
 .header-details-menu a:focus,
 .header-catalog-menu a:focus {
   color: rgba(0, 0, 0, 0.6);
 }
 
-.header-user-menu input:active,
 .header-details-menu a:active,
 .header-catalog-menu a:active {
   outline: none;
@@ -397,11 +419,20 @@ a {
 /* Стили для выпадающего меню каталога */
 
 .header-catalog-sections {
+  display: none;
+
   position: absolute;
   z-index: 1;
   left: -60px;
   top: 23px;
-  visibility: hidden;
+  height: 130px;
+  width: 1040px;
+  padding: 22px 60px 12px 60px;
+
+  background: rgba(247, 226, 150, 1);
+}
+
+.header-catalog-menu:focus-within .header-catalog-sections {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -413,15 +444,21 @@ a {
       align-content: flex-start;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  height: 130px;
-  width: 1040px;
-  padding: 22px 60px 12px 60px;
-
-  background: rgba(247, 226, 150, 1);
 }
 
-.header-catalog-sections:hover {
-  visibility: visible;
+.header-catalog-menu:hover .header-catalog-sections,
+.header-catalog-title:focus ~ .header-catalog-sections {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: start;
+      align-content: flex-start;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .header-catalog-sections li {
@@ -446,11 +483,6 @@ a {
 .header-catalog-menu {
   position: relative;
   margin-top: 27px;
-}
-
-.header-catalog-title:hover + .header-catalog-sections,
-.header-catalog-title:focus + .header-catalog-sections {
-  visibility: visible;
 }
 
 .header-catalog-title {
@@ -625,9 +657,12 @@ a {
 
 .special-offers table {
   margin-top: 15px;
+  margin-left: -3px;
 }
 
 .special-offers th {
+  padding-top: 5px;
+  
   font-size: 13px;
   line-height: 20px;
   letter-spacing: 0.13px;
@@ -646,7 +681,7 @@ a {
 .special-offers .offers-navigation {
   position: absolute;
   bottom: 160px;
-  left: 1020px;
+  right: 82px;
 
   display: -webkit-box;
 
@@ -699,7 +734,7 @@ a {
 }
 
 .offer-card:first-child td {
-  padding-right: 73px;
+  padding-right: 75px;
 }
 
 .offer-card:first-child td:last-child {
@@ -716,7 +751,12 @@ a {
 .offer-card:nth-child(2) .offers-txt-wrapper {
   padding-left: 20px;
   padding-top: 82px;
+  padding-right: 100px;
 } 
+
+.offer-card:nth-child(2) .lead {
+  width: 400px;
+}
 
 /* Стили для третьего слайда */
 
@@ -729,6 +769,10 @@ a {
   padding-left: 20px;
   padding-top: 80px;
   width:505px;
+}
+
+.offer-card:nth-child(3) .description {
+  width: 480px;
 }
 
 .offers-card:nth-child(3) p:nth-child(2) {
@@ -757,9 +801,6 @@ a {
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  /* -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between; */
   margin: 0;
   padding: 0;
 
@@ -779,7 +820,7 @@ a {
   color: rgba(0, 0, 0, 1);
 }
 
-.catalog-sections li:active {
+.catalog-sections a:active {
   color: rgba(0, 0, 0, 0.3);
 }
 
@@ -846,6 +887,22 @@ a {
 .catalog-sections a:active::before {
   opacity: 0.3;
 } 
+
+
+.catalog-sections .txt-container:active {
+  color: rgba(0, 0, 0, 0.3);
+}
+
+.monopode .txt-container {
+  display: block;
+  width: 120px;
+  color: inherit;
+}
+
+.fitness-bracelet .txt-container {
+  display: block;
+  width: 161px;
+}
 
 
 /* Стили для условий покупки */
@@ -922,21 +979,20 @@ a {
   margin-bottom: 24px;
 }
 
-.purchase-services-filter button {
+.purchase-services-filter .main-button {
   min-width: 160px;
   
   overflow: hidden;
   -o-text-overflow: ellipsis;
      text-overflow: ellipsis;
   position: relative;
-  /* max-width: 100%; */
   width: 100%;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
 }
 
-.purchase-services-filter button:focus,
-.purchase-services-filter button:active {
+.purchase-services-filter .main-button:focus,
+.purchase-services-filter .main-button:active {
   outline: none;
 }
 
@@ -1130,8 +1186,8 @@ a {
 }
 
 .about-us {
-  -ms-flex-preferred-size: 480px;
-      flex-basis: 480px;
+  -ms-flex-preferred-size: 472px;
+      flex-basis: 472px;
 }
 
 .main-contacts {
@@ -1142,7 +1198,7 @@ a {
 .about-us h2,
 .main-contacts h2 {
   margin-top: 45px;
-  margin-bottom: 45px;
+  margin-bottom: 43px;
   font-family: 'gilroyextrabold', Arial, sans-serif;
   font-size: 47px;
   font-weight: 800;
@@ -1453,7 +1509,7 @@ h1.page-title {
 }
 
 .price-controls label,
-.price-controls output {
+.price-controls input {
   font-family: 'gilroylight', Arial, sans-serif;
   font-size: 14px;
   font-weight: 300;
@@ -1465,18 +1521,31 @@ h1.page-title {
   color: rgba(0, 0, 0, 0.2);
 }
 
-.catalog-filter-parameter.color ul {
+.price-controls input {
+  width: auto;
+  max-width: 45px;
+  height: 24px;
+  display: inline-block;
+  vertical-align: baseline;
+  text-align: left;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: inherit;
+}
+
+.color-parameter ul {
   list-style: none;
   margin-top: 4px;
   margin-bottom: 23px;
 }
 
-.catalog-filter-parameter.color li {
+.color-parameter li {
   position: relative;
   height: 40px;
 }
 
-input[type="checkbox"] + label::before {
+.checkbox-item  + label::before {
   position: absolute;
   content: "";
   width: 27px;
@@ -1487,11 +1556,11 @@ input[type="checkbox"] + label::before {
   top: -3px;
 }
 
-input[type="checkbox"]:checked + label::before {
+.checkbox-item:checked + label::before {
   background-image: url('../img/checkbox-on.svg');
 }
 
-.catalog-filter-parameter.bluetooth label {
+.bluetooth-parameter label {
   position: relative;
   display: block;
   padding-left: 40px;
@@ -1500,7 +1569,7 @@ input[type="checkbox"]:checked + label::before {
   line-height: 25px;
 }
 
-input[type="radio"] + label::before {
+.radio-item + label::before {
   position: absolute;
   content: "";
   -webkit-box-sizing: border-box;
@@ -1514,7 +1583,7 @@ input[type="radio"] + label::before {
   top: 0px;
 }
 
-input[type="radio"]:checked + label::after {
+.radio-item:checked + label::after {
   position: absolute;
   content: "";
   width: 9px;
@@ -1531,19 +1600,21 @@ input[type="radio"]:checked + label::after {
   letter-spacing: 0.1px;
 }
 
-input:disabled + label,
-input:disabled + label:hover {
+.catalog-filter-item:disabled + label,
+.catalog-filter-item:disabled + label:hover,
+.catalog-filter-item:disabled + label::before {
   opacity: 0.25;
   cursor: auto;
 }
 
 .catalog-filter label:hover,
-input:focus + label {
+.catalog-filter li:hover,
+.catalog-filter-item:focus + label {
   opacity: 0.6;
 }
 
 
-.catalog-filter button {
+.catalog-filter .main-button {
   width: 100%;
   margin-top: 25px;
 }
@@ -1794,7 +1865,15 @@ input:focus + label {
   max-width: 260px;
 }
 
+.catalog-item-2 h3 {
+  width: 200px;
+}
+
 .catalog-item:hover .buttons-overflow {
+  visibility: visible;
+}
+
+.catalog-item:focus-within .buttons-overflow {
   visibility: visible;
 }
 
@@ -1990,7 +2069,11 @@ input:focus + label {
   left: 8px;    
 }
 
-.footer-user-menu button {
+.footer-user-menu .log-out {
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 12px;
+
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 15px;
   font-weight: 300;
@@ -2001,12 +2084,6 @@ input:focus + label {
   border: none;
   color: rgba(255, 255, 255, 1);
   opacity: 0.3;
-}
-
-.footer-user-menu .log-out {
-  padding-right: 0;
-  padding-left: 0;
-  margin-left: 12px;
 }
 
 .footer-contacts,
@@ -2140,13 +2217,13 @@ input:focus + label {
   opacity: 0.3;
 }
 
-button.log-out:hover,
-button.log-out:focus {
+.site-footer .log-out:hover,
+.site-footer .log-out:focus {
   outline: none;
   opacity: 0.6;;
 }
 
-button.log-out:active {
+.site-footer .log-out:active {
   outline: none;
   opacity: 1;
 }

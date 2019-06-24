@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>HTML Academy: Девайс</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap&subset=cyrillic" rel="stylesheet">
-    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/normalize.min.css" rel="stylesheet">
     <link href="css/style.min.css" rel="stylesheet">
   </head>
   <body>
@@ -16,8 +16,8 @@
         <div class="header-container">
           <ul class="header-left-menu">
             <li>
-              <form class="header-search-form">
-                <input class="search-field" type="search" id="search-field">
+              <form class="header-search-form" method="get" action="https://echo.htmlacademy.ru">
+                <input class="search-field" type="search" id="search-field" name="search-field" autocomplete="off">
                 <button class="search-button" type="submit" aria-label="Найти">Найти</button>
                 <label class="search-label" for="search-field">Поиск по сайту</label>
               </form>
@@ -26,7 +26,7 @@
               <a class="header-catalog-title" href="#">Каталог товаров</a>
               <ul class="header-catalog-sections">
                   <li><a href="#">Виртуальная реальность</a></li>
-                  <li><a href="#">Моноподы для селфи</a></li>
+                  <li><a href="#monopods-page">Моноподы для селфи</a></li>
                   <li><a href="#">Экшн-камеры</a></li>
                   <li><a href="#">Фитнес-браслеты</a></li>
                   <li><a href="#">Умные часы</a></li>
@@ -38,7 +38,7 @@
             <ul class="header-user-menu">
               <li>
                 <a class="user" href="#">Валентин Петухов</a>
-                <button class="log-out" type="button" aria-label="Выйти из аккаунта">Выйти</button>
+                <a class="log-out" href="#">Выйти</a>
               </li>
               <li><a class="compare" href="#">Сравнить</a></li>
               <li><a class="cart" href="#">Корзина</a></li>
@@ -67,7 +67,7 @@
             <h2>Фильтр:</h2>
           </div>
           <div class="form-wrapper">
-            <form method="get">
+            <form action="https://echo.htmlacademy.ru" method="get">
               <fieldset class="catalog-filter-parameter">
                 <legend>Стоимость</legend>
                 <div class="range-filter">
@@ -79,41 +79,47 @@
                       <div class="toggle toggle-max" tabindex="0"></div>
                     </div>
                     <div class="price-controls">
-                      <label class="min-price">от <output name="min-price">0</output></label>
-                      <label class="max-price">до <output name="max-price">5000</output></label>
+                      <label class="min-price">
+                        от
+                        <input class="catalog-filter-item" name="min-price" type="text" value="0" pattern="[0-9]{1,}" required>
+                      </label>
+                      <label class="max-price">
+                        до
+                        <input class="catalog-filter-item " name="max-price" type="text" value="5000" pattern="[0-9]{1,}" required>
+                      </label>
                     </div>
                   </div>
               </fieldset>
-              <fieldset class="catalog-filter-parameter color">
+              <fieldset class="catalog-filter-parameter color-parameter">
                 <legend>Цвет</legend>
                 <ul>
                   <li>
-                    <input class="visually-hidden" type="checkbox" name="color" value="Black" id="color-black" checked>
+                    <input class="catalog-filter-item checkbox-item visually-hidden" type="checkbox" name="color" value="Black" id="color-black" checked>
                     <label for="color-black">Черный</label>
                   </li>
                   <li>
-                    <input class="visually-hidden" type="checkbox" name="color" value="White" id="color-white">
+                    <input class="catalog-filter-item checkbox-item visually-hidden" type="checkbox" name="color" value="White" id="color-white">
                     <label for="color-white">Белый</label>
                   </li>
                   <li>
-                    <input class="visually-hidden" type="checkbox" name="color" value="Blue" id="color-blue" checked>
+                    <input class="catalog-filter-item checkbox-item visually-hidden" type="checkbox" name="color" value="Blue" id="color-blue" checked>
                     <label for="color-blue">Синий</label>
                   </li>
                   <li>
-                    <input class="visually-hidden" type="checkbox" name="color" value="Red" id="color-red" checked>
+                    <input class="catalog-filter-item checkbox-item visually-hidden" type="checkbox" name="color" value="Red" id="color-red" checked>
                     <label for="color-red">Красный</label>
                   </li>
                   <li>
-                    <input class="visually-hidden" type="checkbox" name="color" value="Pink" id="color-pink">
+                    <input class="catalog-filter-item checkbox-item visually-hidden" type="checkbox" name="color" value="Pink" id="color-pink">
                     <label for="color-pink">Розовый</label>
                   </li>
                 </ul>
               </fieldset>
-              <fieldset class="catalog-filter-parameter bluetooth">
+              <fieldset class="catalog-filter-parameter bluetooth-parameter">
                 <legend>Bluetooth</legend>
-                <input class="visually-hidden" type="radio" name="bluetooth" value="yes" id="bluetooth" checked>
+                <input class="catalog-filter-item radio-item visually-hidden" type="radio" name="bluetooth" value="yes" id="bluetooth" checked>
                 <label for="bluetooth">Есть</label>
-                <input class="visually-hidden" type="radio" name="bluetooth" value="no" id="no-bluetooth">
+                <input class="catalog-filter-item radio-item visually-hidden" type="radio" name="bluetooth" value="no" id="no-bluetooth">
                 <label for="no-bluetooth">Нет</label>
               </fieldset>
               <button class="main-button" type="submit">Показать</button>
@@ -126,8 +132,8 @@
               <h2>Сортировка:</h2>
               <ul class="sort-type">
                 <li><a class="current">По цене</a></li>
-                <li><a href="">По типу</a></li>
-                <li><a href="">По популярности</a></li>
+                <li><a href="#">По типу</a></li>
+                <li><a href="#">По популярности</a></li>
               </ul>
               <ul class="sort-order">
                 <li>
@@ -159,14 +165,14 @@
                     </p>
                   </div>
                 </li>
-                <li class="catalog-item">
+                <li class="catalog-item catalog-item-2">
                   <img class="item-photo" src="img/item-2.jpg" width="360" height="380" alt="Профессиональная селфи-палка">
                   <div class="buttons-overflow">
                     <button class="to-cart main-button" type="button">В корзину</button>
                     <button class="to-comparison" type="button">Добавить к сравнению</button>
                   </div>
                   <div class="flex-container item-text">
-                    <h3><a href="#">Профессиональная<br> селфи-палка</a></h3>
+                    <h3><a href="#">Профессиональная селфи-палка</a></h3>
                     <p class="item-price">
                       1 500 руб.
                     </p>
@@ -221,7 +227,7 @@
             <ul class="footer-user-menu">
               <li>
                 <a class="user" href="#">Валентин Петухов</a>
-                <button class="log-out" type="button" aria-label="Выйти из аккаунта">Выйти</button>
+                <a class="log-out" href="#">Выйти</a>
               </li>
               <li><a class="compare" href="#">Сравнить</a></li>
               <li><a class="cart" href="#">Корзина</a></li>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>HTML Academy: Девайс</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300&display=swap&subset=cyrillic" rel="stylesheet">
-    <link href="css/normalize.css" rel="stylesheet">
+    <link href="css/normalize.min.css" rel="stylesheet">
     <link href="css/style.min.css" rel="stylesheet">
   </head>
   <body>
@@ -16,8 +16,8 @@
         <div class="header-container">
           <ul class="header-left-menu">
             <li>
-              <form class="header-search-form">
-                <input class="search-field" type="search" id="search-field">
+              <form class="header-search-form" method="get" action="https://echo.htmlacademy.ru">
+                <input class="search-field" type="search" id="search-field" name="search-field" autocomplete="off">
                 <button class="search-button" type="submit" aria-label="Найти">Найти</button>
                 <label class="search-label" for="search-field">Поиск по сайту</label>
               </form>
@@ -62,7 +62,7 @@
               </div>
               <div class="offers-txt-wrapper">
                 <p class="lead"><b>Делай селфи,<br>как Бен Стиллер!</b></p>
-                <p>
+                <p class="description">
                   Самая длинная палка для селфи доступна в нашем магазине. Восемь (Восемь, Карл!) метров длиной и весом всего 5 килограмм.
                 </p>
                 <a class="main-button" href="#">Подробнее</a>
@@ -89,8 +89,8 @@
                 <img src="img/slider-2.png" width="345" height="485" alt="Фото товара по спец. предложению 1">
               </div>
               <div class="offers-txt-wrapper">
-                <p class="lead"><b>Худеем<br>правильно!</b></p>
-                <p>
+                <p class="lead"><b>Худеем правильно!</b></p>
+                <p class="description">
                   Мотивирующие фитнес-браслеты помогут найти в себе силы не пропускать занятия и соблюдать диету.
                 </p>
                 <a class="main-button" href="#">Подробнее</a>
@@ -113,8 +113,8 @@
                 <img src="img/slider-3.png" width="526" height="334" alt="Фото товара по спец. предложению 1">
               </div>
               <div class="offers-txt-wrapper">
-                <p class="lead"><b>Порхает как бабочка,<br>жалит как пчела!</b></p>
-                <p>
+                <p class="lead"><b>Порхает как бабочка, жалит как пчела!</b></p>
+                <p class="description">
                   Этот обычный, на первый взгляд, квадрокоптер оснащен мощным лазером, замаскированным под стандартную камеру.                
                 </p>
                 <a class="main-button" href="#">Подробнее</a>
@@ -153,12 +153,12 @@
       </section>
       <section class="catalog-sections center-container">
         <ul>
-          <li><a class="vr" href="#">Виртуальная реальность</a></li>
-          <li><a class="monopode" href="#">Моноподы<br>для селфи</a></li>
-          <li><a class="action-camera" href="#">Экшн-камеры</a></li>
-          <li><a class="fitness-bracelet" href="#">Фитнес-браслеты</a></li>
-          <li><a class="smart-watches" href="#">Умные часы</a></li>
-          <li><a class="qwadrocopter" href="#">Квадрокоптеры</a></li>
+          <li><a class="vr" href="#"><p class="txt-container">Виртуальная реальность</p></a></li>
+          <li><a class="monopode" href="#"><p class="txt-container">Моноподы для селфи</p></a></li>
+          <li><a class="action-camera" href="#"><p class="txt-container">Экшн-камеры</p></a></li>
+          <li><a class="fitness-bracelet" href="#"><p class="txt-container">Фитнес-браслеты</p></a></li>
+          <li><a class="smart-watches" href="#"><p class="txt-container">Умные часы</p></a></li>
+          <li><a class="qwadrocopter" href="#"><p class="txt-container">Квадрокоптеры</p></a></li>
         </ul>
       </section>
       <section class="purchase-services">
@@ -235,7 +235,7 @@
           <h2>Контакты</h2>
           <p>
             Вы можете забрать товар сами, заехав в наш офис.
-            Заодно вы сможете проверить работоспособность покупки.
+            Заодно, вы сможете проверить работоспособность покупки.
             Всякое бывает.
           </p>
           <a class="map-open" href="https://www.google.ru/maps/place/ул.+Строителей,+15,+Москва,+119311/@55.687031,37.5274293,17z/data=!3m1!4b1!4m5!3m4!1s0x46b54cf65f5c8955:0x694710ccd55501e!8m2!3d55.687031!4d37.529618?hl=ru">
@@ -271,7 +271,7 @@
             <li><a href="#">Контакты</a></li>
           </ul>
           <address class="footer-contacts phone-number">
-            <a href="tel.:74954959595">Тел.: +7 (495) 495-95-95</a>
+            <a href="tel:+74954959595">Тел.: +7 (495) 495-95-95</a>
           </address>
         </div>
         <div class="flex-container footer-bottom">
@@ -302,7 +302,7 @@
       </div>
     </footer>
     <section class="modal feedback-modal visually-hidden">
-      <form class="feedback-form" method="post">
+      <form class="feedback-form" method="post" action="https://echo.htmlacademy.ru">
         <fieldset class="name">
           <label for="user-name">Ваше имя:</label>
           <input type="text" id="user-name" name="user-name" placeholder="Имя Фамилия">
