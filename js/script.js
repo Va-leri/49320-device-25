@@ -1,11 +1,11 @@
 //Скрипты для модального окна фидбека
-var feedbackModal = document.querySelector (".feedback-modal");
+var feedbackModal = document.querySelector(".feedback-modal");
 var feedbackOpen = document.querySelector(".feedback-open");
 var feedbackClose = feedbackModal.querySelector(".close-btn");
 var nameField = feedbackModal.querySelector(".name input");
 var emailField = feedbackModal.querySelector(".e-mail input");
 var textField = feedbackModal.querySelector("textarea");
-var storageName  = "";
+var storageName = "";
 var storageEmail = "";
 var isStorageSupport = true;
 
@@ -24,36 +24,32 @@ feedbackOpen.addEventListener("click", function (evt) {
     nameField.value = storageName;
     if (storageEmail) {
       emailField.value = storageEmail;
-      setTimeout(function() { textField.focus(); }, 1000);
+      setTimeout(function () { textField.focus(); }, 1000);
     } else {
-      setTimeout(function() { emailField.focus(); }, 1000);
+      setTimeout(function () { emailField.focus(); }, 1000);
     }
   } else {
-    setTimeout(function() { nameField.focus(); }, 1000);
+    setTimeout(function () { nameField.focus(); }, 1000);
   }
 });
 
 feedbackClose.addEventListener("click", function (evt) {
   evt.preventDefault();
   feedbackModal.classList.add("visually-hidden");
-  feedbackModal.classList.remove("animation");
+  feedbackModal.classList.remove("animation-open");
   feedbackModal.classList.remove("animation-error");
 });
 
 feedbackModal.addEventListener("submit", function (evt) {
   if (!nameField.value || !emailField.value) {
     evt.preventDefault();
-    console.log("введите");
     feedbackModal.classList.remove("animation-error");
-    console.log("убрали класс");
     feedbackModal.offsetWidth = feedbackModal.offsetWidth;
     feedbackModal.classList.add("animation-error");
-    console.log("добавили класс");
   } else {
     if (isStorageSupport) {
       localStorage.setItem("name", nameField.value);
       localStorage.setItem("email", emailField.value);
-      console.log(storageName);         
     }
   }
 });
@@ -63,9 +59,9 @@ window.addEventListener("keydown", function (evt) {
     if (!feedbackModal.classList.contains("visually-hidden")) {
       evt.preventDefault();
       feedbackModal.classList.add("visually-hidden");
-      feedbackModal.classList.remove("animation");
+      feedbackModal.classList.remove("animation-open");
       feedbackModal.classList.remove("animation-error");
-    } 
+    }
   }
 });
 
@@ -89,7 +85,7 @@ window.addEventListener("keydown", function (evt) {
     if (!mapModal.classList.contains("visually-hidden")) {
       evt.preventDefault();
       mapModal.classList.add("visually-hidden");
-    } 
+    }
   }
 });
 
@@ -167,9 +163,7 @@ for (var i = 0; i < filterItems.length; i = i + 1) {
 
   //Работа по табу
   filterButtons[i].addEventListener('focus', function (evt) {
-    console.log ("focus event");
     for (var j = 0; j < filterItems.length; j = j + 1) {
-      console.log("focus on element " + j);
       servicesItems[j].classList.remove("current");
       filterButtons[j].classList.remove("current");
       filterItems[j].classList.remove("current");
@@ -181,6 +175,3 @@ for (var i = 0; i < filterItems.length; i = i + 1) {
     this.classList.add("current");
   });
 };
-
-
-

@@ -1,28 +1,28 @@
 @font-face {
   font-family: 'gilroyextrabold';
   src: url('../fonts/gilroyextrabold.woff') format('woff');
-  font-weight: normal;
+  font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'gilroyextrabold';
   src: url('../fonts/gilroyextrabold.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 800;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'gilroylight';
   src:  url('../fonts/gilroylight.woff') format('woff');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'gilroylight';
   src: url('../fonts/gilroylight.woff2') format('woff2');
-  font-weight: normal;
+  font-weight: 400;
   font-style: normal;
 }
 
@@ -47,6 +47,7 @@ body {
      text-overflow: ellipsis;
 
   font-family: 'gilroyextrabold', Arial, sans-serif;
+  font-weight: 800;
 }
 
 img {
@@ -82,14 +83,11 @@ a {
 /* Стили для хедера */
 
 .site-header {
-  width: 1040px;
-  min-height: 186px;
+  width: 1160px;
   margin: 40px auto 0;
-  padding: 0 60px;
-
-  color: #000000;
-
-  background-color: rgba(240, 197, 46, 0.5);
+  padding: 0 20px;
+  color: #000;
+  background-color: transparent;
 }
 
 .site-header-logo {
@@ -134,6 +132,13 @@ a {
   list-style: none;
 }
 
+.site-navigation {
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-bottom: 50px;
+  background: rgba(240, 197, 46, 0.5);
+}
+
 .site-navigation a {
   color: #000000;
 }
@@ -142,9 +147,7 @@ a {
   position: relative;
 
   display: -webkit-box;
-
   display: -ms-flexbox;
-
   display: flex;
 }
 
@@ -201,7 +204,7 @@ a {
   border-bottom: 2px solid rgba(0, 0, 0, 1);
 }
 
-
+/* Для других браузеров */
 .header-search-form:focus-within .search-field {
   width: 356px;
   outline: none;
@@ -242,6 +245,7 @@ a {
   display: block;
 }
 
+/* Для других браузеров */
 .header-search-form:focus-within .search-button {
   display: block;
 }
@@ -535,6 +539,10 @@ a {
   border: none;
 }
 
+.main-button b {
+  font-weight: 800;
+}
+
 .main-button:hover,
 .main-button:focus {
   background-color: #f0c52e;
@@ -569,7 +577,7 @@ a {
 
 .offer-card {
   display: none;
-  min-height: 503px;
+  min-height: 504px;
 }
 
 .offer-card.current {
@@ -636,6 +644,7 @@ a {
       flex-basis: 580px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  padding-top: 80px;
 }
 
 .special-offers .lead {
@@ -643,10 +652,15 @@ a {
   
   font-family: 'gilroyextrabold', Arial, sans-serif;
   font-size: 47px;
+  font-weight: 800;
   line-height: 56px;
   letter-spacing: 0.47px;
   text-align: left;
   color: rgba(0, 0, 0, 1);
+}
+
+.special-offers b {
+  font-weight: 800;
 }
 
 .special-offers .main-button {
@@ -729,8 +743,6 @@ a {
 .offer-card:first-child .offers-txt-wrapper {
   padding-left: 20px;
   padding-right: 70px;
-  padding-top: 80px;
-  width: 485px;
 }
 
 .offer-card:first-child td {
@@ -750,7 +762,6 @@ a {
   
 .offer-card:nth-child(2) .offers-txt-wrapper {
   padding-left: 20px;
-  padding-top: 82px;
   padding-right: 100px;
 } 
 
@@ -767,8 +778,6 @@ a {
 
 .offer-card:nth-child(3) .offers-txt-wrapper {
   padding-left: 20px;
-  padding-top: 80px;
-  width:505px;
 }
 
 .offer-card:nth-child(3) .description {
@@ -789,12 +798,14 @@ a {
 
 
 /* Стили для разделов каталога */
+
 .catalog-sections {
   margin-bottom: 40px;
   width: 1200px;
   padding-left: 0;
   padding-right: 0;
 }
+
 .catalog-sections ul {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -814,6 +825,7 @@ a {
 
   font-family: 'gilroyextrabold', Arial, sans-serif;
   font-size: 18px;
+  font-weight: 800;
   line-height: 24px;
   letter-spacing: 0.18px;
   text-align: left;
@@ -888,6 +900,10 @@ a {
   opacity: 0.3;
 } 
 
+.catalog-sections .txt-container {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
 .catalog-sections .txt-container:active {
   color: rgba(0, 0, 0, 0.3);
@@ -908,10 +924,11 @@ a {
 /* Стили для условий покупки */
 
 .purchase-services {
+  min-width: 1200px;
+  margin-bottom: 95px;
   background-image: -webkit-linear-gradient(transparent 100px,#e5e5e5 100px, #e5e5e5 100%);
   background-image: -o-linear-gradient(transparent 100px,#e5e5e5 100px, #e5e5e5 100%);
   background-image: linear-gradient(transparent 100px,#e5e5e5 100px, #e5e5e5 100%);
-  margin-bottom: 95px;
 }
 
 .purchase-services .center-container {
@@ -936,15 +953,11 @@ a {
       -ms-flex-pack: start;
           justify-content: flex-start;
   min-width: 278px;
-
 }
 
 .purchase-services-filter {
-
   display: -webkit-box;
-
   display: -ms-flexbox;
-
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -1018,7 +1031,7 @@ a {
 .purchase-services-items li {
   position: relative;
   display: none;
-  width: 430px;
+  width: 436px;
 }
 
 .purchase-services-items li::after {
@@ -1053,7 +1066,7 @@ a {
 
 .purchase-services-items h3 {
   margin-top: 72px;
-  margin-bottom: 30px;
+  margin-bottom: 32px;
 
   font-family: 'gilroyextrabold', Arial, sans-serif;
   font-size: 47px;
@@ -1068,8 +1081,6 @@ a {
 }
 
 .purchase-services-items p {
-  width: 430px;
-
   font-size: 15px;
   line-height: 30px;
   letter-spacing: 0.15px;
@@ -1150,9 +1161,7 @@ a {
   position: relative;
 
   display: -webkit-box;
-
   display: -ms-flexbox;
-
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -1271,16 +1280,17 @@ a {
 /* Стили для мэйн каталога */
 
 .catalog-page {
-  margin-top: 35px;
+  margin-top: 37px;
 }
 
-h1.page-title {
+.catalog-page .page-title {
   margin-top: 0px;
-  margin-bottom: 25px;
+  margin-bottom: 23px;
   padding-left: 60px;
 
   font-family: 'gilroyextrabold', Arial, sans-serif;
   font-size: 47px;
+  font-weight: 800;
   line-height: 48px;
   letter-spacing: 0.47px;
 }
@@ -1305,7 +1315,7 @@ h1.page-title {
 .breadcrumbs li {
   position: relative;
 
-  margin-right: 39px;
+  margin-right: 37px;
 }
 
 .breadcrumbs li:not(:last-child)::after {
@@ -1324,9 +1334,7 @@ h1.page-title {
   border-left: none;
 
   -webkit-transform: rotate(45deg);
-
       -ms-transform: rotate(45deg);
-
           transform: rotate(45deg);
 }
 
@@ -1368,6 +1376,8 @@ h1.page-title {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1386,18 +1396,18 @@ h1.page-title {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
-  padding-top: 70px;
+  padding-top: 71px;
 }
 
 .catalog-filter h2 {
   padding-left: 60px;
   width: 268px;
-  min-height: 71px;
+  min-height: 70px;
   margin-top: 0;
   margin-bottom: 0;
   margin-left: auto;
 
-  line-height: 71px;
+  line-height: 70px;
 }
 
 .catalog-filter form {
@@ -1625,6 +1635,8 @@ h1.page-title {
   -webkit-box-flex: 1;
       -ms-flex-positive: 1;
           flex-grow: 1;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
 }
 
 .catalog-sort-wrapper {
@@ -1636,7 +1648,7 @@ h1.page-title {
   display: -ms-flexbox;
   display: flex;
   width: 832px;
-  min-height: 71px;
+  min-height: 70px;
 }
 
 .catalog-sort ul {
@@ -1649,7 +1661,7 @@ h1.page-title {
   margin-top: 0;
   margin-bottom: 0;
   margin-left: 74px;
-  line-height: 71px;
+  line-height: 70px;
 }
 
 .catalog-sort ul,
@@ -1662,7 +1674,7 @@ h1.page-title {
   margin-left: 55px;
   margin-right: auto;
   margin-bottom: 27px;
-  margin-top: 25px;
+  margin-top: 24px;
 }
 
 .sort-type a {
@@ -1759,9 +1771,7 @@ h1.page-title {
   margin: 0;
 
   display: -webkit-box;
-
   display: -ms-flexbox;
-
   display: flex;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
@@ -1790,7 +1800,7 @@ h1.page-title {
 } 
 
 .to-cart {
-  margin-top: 173px;
+  margin-top: 170px;
   min-width: 200px;
 }
 
@@ -1805,7 +1815,7 @@ h1.page-title {
 }
 
 .to-comparison {
-  margin-top: 5px;
+  margin-top: 6px;
 
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 13px;
@@ -1836,7 +1846,6 @@ h1.page-title {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  
 }
 
 .catalog-item {
@@ -1852,7 +1861,7 @@ h1.page-title {
 }
 
 .item-text {
-  margin-top: 33px;
+  margin-top: 32px;
 }
 
 .catalog-list h3,
@@ -1862,7 +1871,7 @@ h1.page-title {
 
 .catalog-list h3 {
   padding-right: 5px;
-  max-width: 260px;
+  max-width: 265px;
 }
 
 .catalog-item-2 h3 {
@@ -1916,7 +1925,7 @@ h1.page-title {
   display: block;
   padding-left: 15px;
   padding-right: 15px;
-  padding-top: 22px;
+  padding-top: 24px;
   padding-bottom: 22px;
 
   font-family: 'gilroyextrabold', Arial, sans-serif;
@@ -1981,7 +1990,8 @@ h1.page-title {
 
 .site-footer {
   min-height: 260px;
-  padding-top: 65px;
+  min-width: 1200px;
+  padding-top: 64px;
   background-color: #464646;
   color: #ffffff;
 }
@@ -1996,14 +2006,14 @@ h1.page-title {
 }
 
 .footer-top {
-  margin-bottom: 30px;
+  margin-bottom: 27px;
 }
 
 .footer-middle {
-  margin-bottom: 60px;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  margin-bottom: 62px;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .site-footer a {
@@ -2011,6 +2021,9 @@ h1.page-title {
 }
 
 .site-footer-logo {
+  display: block;
+  margin-top: 2px;
+
   fill: #ffc600;
 }
 
@@ -2072,7 +2085,7 @@ h1.page-title {
 .footer-user-menu .log-out {
   padding-right: 0;
   padding-left: 0;
-  margin-left: 12px;
+  margin-left: 15px;
 
   font-family: 'Open Sans', Arial, sans-serif;
   font-size: 15px;
@@ -2145,12 +2158,12 @@ h1.page-title {
   margin-top: -3px;
 }
 
-
 .social-nets {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin: 0;
+  margin-bottom: 0;
+  margin-top: 2px;
   margin-left: auto;
   margin-right: auto;
   padding-left: 27px;
@@ -2262,13 +2275,11 @@ h1.page-title {
   left: 50%;
 
   -webkit-box-sizing: border-box;
-
           box-sizing: border-box;
   width: 960px;
   margin-left: -480px;
 
   -webkit-box-shadow: 0 10px 20px rgba(04, 06, 06, 0.2);
-
           box-shadow: 0 10px 20px rgba(04, 06, 06, 0.2);
 }
 
